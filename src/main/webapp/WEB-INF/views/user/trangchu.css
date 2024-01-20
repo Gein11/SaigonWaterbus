@@ -1,0 +1,91 @@
+@charset "UTF-8";
+#carouselExampleAutoplaying {
+    width: 1343px;
+    height: 600px;
+}
+
+.carousel-inner {
+    width: 100%;
+    height: 100%;
+}
+
+.carousel-item {
+    width: 100%;
+    height: 100%;
+}
+
+.carousel-item img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    opacity: 0.9;
+}
+
+.title {
+    position: relative;
+    top: -250px;
+    text-transform: uppercase;
+    text-align: right;
+    float: right;
+    font-size: 50px;
+    color: black;
+    text-shadow: 2px 2px 2px #FFFFFF;
+}
+
+.title-content {
+    position: relative;
+    top: -200px;
+    float: right;
+    text-align: right;
+    font-size: 20px;
+    color: black;
+    text-shadow: 2px 2px 2px #FFFFFF;
+    font-weight: bold;
+}
+
+/* Box tìm kiếm */
+.nav-link {
+    width: 300px;
+    color: #979797;
+}
+
+.nav-underline .nav-link.active, .nav-underline .show>.nav-link {
+    color: #fcb900;
+}
+
+.go {
+    font-size: 25px;
+}
+
+.timve {
+    background-color: #fcb900;
+    color: black;
+    border: none;
+    border-radius: 10px;
+    padding: 10px 25px;
+}
+
+.iicon {
+    font-size: 40px;
+    color: #fcb900;
+}
+
+.tau{
+    width: 200px;
+}
+
+.image-container {
+    position: relative;
+    width: 100%;
+}
+
+.text-overlay {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    color: white;
+    font-size: 24px;
+    font-weight: bold;
+    text-align: center;
+}

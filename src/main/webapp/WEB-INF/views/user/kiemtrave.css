@@ -1,0 +1,24 @@
+@charset "UTF-8";
+.image-container {
+    position: relative;
+    width: 100%;
+}
+
+.text-overlay {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    color: white;
+    font-size: 24px;
+    font-weight: bold;
+    text-align: center;
+}
+
+.timve {
+    background-color: #fcb900;
+    color: black;
+    border: none;
+    border-radius: 10px;
+    padding: 10px 25px;
+}
