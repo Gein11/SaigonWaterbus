@@ -1,8 +1,7 @@
 server:
   port: 8080
   servlet:
-    context-path: /Lab1
-
+    context-path: /asm
 spring:
   mvc:
     view:
