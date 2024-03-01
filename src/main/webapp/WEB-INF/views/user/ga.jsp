@@ -125,7 +125,7 @@ width: 100%;
 
 <body>
     <section class="1">
-        <img src="img/bđ.jpg" alt="" width="100%">
+        <img src="${pageContext.request.contextPath}/img/bd.jpg" alt="" width="100%">
     </section>
     <section class="2">
         <div class="ttdd">
@@ -329,18 +329,19 @@ width: 100%;
                     </div>
                 </div>
             </div>
+            </div>
     </section>
     <section class="4">
         <div id="carouselExampleFade" class="carousel slide carousel-fade" data-bs-ride="carousel">
             <div class="carousel-inner">
                 <div class="carousel-item active">
-                    <img src="img/gt1.jpg" class="d-block w-100" alt="...">
+                    <img src="${pageContext.request.contextPath}/img/gt1.jpg" class="d-block w-100" alt="...">
                 </div>
                 <div class="carousel-item">
-                    <img src="img/gt2.jpg" class="d-block w-100" alt="...">
+                    <img src="${pageContext.request.contextPath}/img/gt2.jpg" class="d-block w-100" alt="...">
                 </div>
                 <div class="carousel-item">
-                    <img src="img/gt3.jpg" class="d-block w-100" alt="...">
+                    <img src="${pageContext.request.contextPath}/img/gt3.jpg" class="d-block w-100" alt="...">
                 </div>
             </div>
             <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleFade"

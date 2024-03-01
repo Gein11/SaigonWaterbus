@@ -1,0 +1,50 @@
+server:
+  port: 8080
+  servlet:
+    context-path: /asm
+spring:
+  mvc:
+    view:
+      prefix: /WEB-INF/views/
+      suffix: .jsp
+  datasource:
+    url: jdbc:sqlserver://localhost:1433;databaseName=SaigonWaterBus;encrypt=false;trustServerCertificate=true
+    username: sa
+    password: 123
+    driver-class-name: com.microsoft.sqlserver.jdbc.SQLServerDriver
+  jpa:
+    database-platform: org.hibernate.dialect.SQLServerDialect
+    hibernate:
+      ddl-auto: update
+    show-sql: true
+  security:
+    oauth2:
+      client:
+        registration:
+         google:
+          clientId: 637719712288-rg73s2lm0u37rsp47o25svm5rjs3pg5h.apps.googleusercontent.com
+          clientSecret: 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
+          scope:
+           - email
+           - profile    
+         facebook:
+          clientId: 1310440712956381
+          clientSecret: 05241f12d60ee62a87fc06e0c2f6936c
+          scope:
+           - email
+           - public_profile
+  mail:
+    host: smtp.gmail.com
+    port: 587
+    username: kuteboylove1999@gmail.com
+    password: xnxertkmwxyvzrey
+    properties:
+      mail:
+        smtp:
+          auth: true
+          starttls:
+            enable: true
+  twilio:
+  account_sid: AC5ff0b131ed3be3967d9a76e29b15cdc0
+  auth_token: adf726566d6b4d36a7aaec39bb350676
+  phone_number: +19152211626

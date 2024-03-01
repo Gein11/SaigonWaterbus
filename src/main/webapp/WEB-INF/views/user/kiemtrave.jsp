@@ -40,7 +40,7 @@
 <body>
 
     <div class="image-container" style="height: 240px;">
-        <img src="img/home-slide-4-1536x880.jpg" class="d-block" alt="..." style="height: 100%; width: 100%;">
+        <img src="${pageContext.request.contextPath}/img/home-slide-4-1536x880.jpg" class="d-block" alt="..." style="height: 100%; width: 100%;">
         <div class="text-overlay">
             Kiểm tra vé
         </div>
@@ -68,10 +68,10 @@
     <div class="row justify-content-center">
         <div class="col-10 d-flex justify-content-center align-items-center">
             <div class="col-5 p-2">
-                <img src="img/check-ticket-1.png" alt="">
+                <img src="${pageContext.request.contextPath}/img/check-ticket-1.png" alt="">
             </div>
             <div class="col-5 p-2">
-                <img src="img/check-ticket-2.png" alt="">
+                <img src="${pageContext.request.contextPath}/img/check-ticket-2.png" alt="">
             </div>
         </div>
     </div>

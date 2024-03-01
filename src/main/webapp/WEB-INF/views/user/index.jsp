@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+<%@ taglib uri="http://www.springframework.org/tags" prefix="s" %>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -7,7 +8,6 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>SAIGON WATERBUS</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
-    <link rel="stylesheet" href="/ASM/user/index.css">
     <style type="text/css">
     .navbar {
     background-color: white; 
@@ -37,7 +37,7 @@
 }
 
 .nav-item {
-    width: 185px;
+    width: 150px;
     display: flex;
     align-items: center;
     justify-content: center;
@@ -107,7 +107,7 @@
     padding: 0 20px;
 }
 
-.title {
+.titlee {
     
     color: white;
 }
@@ -126,52 +126,77 @@
     color:  #fcb900; /* Màu của văn bản khi hover */
 }
     </style>
+    
+    <script>
+	    function submitBookingForm() {
+	        var selectedSeats = [];
+	        $('input[type=checkbox]:checked').each(function() {
+	            selectedSeats.push($(this).attr('id').replace('ve_', ''));
+	        });
+	        $('#bookingForm').append('<input type="hidden" name="selectedSeats" value="' + selectedSeats.join(',') + '">');
+	        $('#bookingForm').submit();
+	    }
+	    
+	    
+		$(document).ready(function() {
+			$("a[href*=lang]").on("click", function() {
+				var param = $(this).attr("href");
+				$.ajax({
+					url : "/home/index" + param,
+					success : function() {
+						location.reload();
+					}
+				});
+				return false;
+			})
+		})
+	</script>
 </head>
 <body>
     <!-- Menu -->
-    <nav class="navbar sticky-top navbar-expand-lg fs-4" data-bs-theme="light" >
+    <nav class="navbar sticky-top navbar-expand-lg fs-6" data-bs-theme="light" >
         <div class="container-fluid">
-            <a class="navbar-brand active fs-4" href="/ASM/saigonwaterbus">
-                <img src="img/logo.png" alt="Bootstrap" class="logo">
+            <a class="navbar-brand active fs-4" href="/asm/saigonwaterbus">
+                <img src="${pageContext.request.contextPath}/img/logo.png" alt="Bootstrap" class="logo">
             </a>
        
           <div class="collapse navbar-collapse" id="navbarNavDropdown">
             <ul class="navbar-nav">
                 <li class="nav-item">
-                    <a class="nav-link" href="/ASM/saigonwaterbus">
-                        TRANG CHỦ
+                    <a class="nav-link" href="/asm/saigonwaterbus">
+                        <s:message code="lo.mn.homePage"/>
                     </a>
                 </li>
                 <li class="nav-item dropdown">
                     <a class="nav-link" href="">
-                        GA TÀU THỦY
+                        <s:message code="lo.mn.trainStation"/>
                     </a>
                     <ul class="dropdown-menu">
-                      <li><a class="dropdown-item" href="/ASM/saigonwaterbus/ga-tau-thuy-bach-dang"> <span class="icon"><i class="fa-solid fa-plus"></i></span> Bạch Đằng</a></li>
-                      <li><a class="dropdown-item" href="/ASM/saigonwaterbus/ga-tau-thuy-binh-an"> <span class="icon"><i class="fa-solid fa-plus"></i></span> Bình An</a></li>
-                      <li><a class="dropdown-item" href="/ASM/saigonwaterbus/ga-tau-thuy-thanh-da"> <span class="icon"><i class="fa-solid fa-plus"></i></span> Thanh Đa</a></li>
-                      <li><a class="dropdown-item" href="/ASM/saigonwaterbus/ga-tau-thuy-hiep-binh-chanh"> <span class="icon"><i class="fa-solid fa-plus"></i></span> Hiệp Bình Chánh</a></li>
-                      <li><a class="dropdown-item" href="/ASM/saigonwaterbus/ga-tau-thuy-linh-dong"> <span class="icon"><i class="fa-solid fa-plus"></i></span> Linh Đông</a></li>
+                      <li><a class="dropdown-item" href="/asm/saigonwaterbus/ga-tau-thuy-bach-dang"> <span class="icon"><i class="fa-solid fa-plus"></i></span> Bạch Đằng</a></li>
+                      <li><a class="dropdown-item" href="/asm/saigonwaterbus/ga-tau-thuy-binh-an"> <span class="icon"><i class="fa-solid fa-plus"></i></span> Bình An</a></li>
+                      <li><a class="dropdown-item" href="/asm/saigonwaterbus/ga-tau-thuy-thanh-da"> <span class="icon"><i class="fa-solid fa-plus"></i></span> Thanh Đa</a></li>
+                      <li><a class="dropdown-item" href="/asm/saigonwaterbus/ga-tau-thuy-hiep-binh-chanh"> <span class="icon"><i class="fa-solid fa-plus"></i></span> Hiệp Bình Chánh</a></li>
+                      <li><a class="dropdown-item" href="/asm/saigonwaterbus/ga-tau-thuy-linh-dong"> <span class="icon"><i class="fa-solid fa-plus"></i></span> Linh Đông</a></li>
                     </ul>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="/ASM/saigonwaterbus/lich-khoi-hanh">
-                        LỊCH KHỞI HÀNH
+                    <a class="nav-link" href="/asm/saigonwaterbus/lich-khoi-hanh">
+                        <s:message code="lo.mn.departureSchedule"/>
                     </a>
                 </li>
                 
                 <li class="nav-item dropdown">
                     <a class="nav-link" href="#">
-                        ĐẶT VÉ 
+                        <s:message code="lo.mn.bookTickets"/> 
                     </a>
                     <ul class="dropdown-menu">
-                        <li><a class="dropdown-item" href="/ASM/saigonwaterbus/tim-ve"> <span class="icon"><i class="fa-solid fa-plus"></i></span> Tìm Vé</a></li>
-                        <li><a class="dropdown-item" href="/ASM/saigonwaterbus/kiem-tra-ve"> <span class="icon"><i class="fa-solid fa-plus"></i></span> Kiểm Tra Vé</a></li>
+                        <li><a class="dropdown-item" href="/asm/saigonwaterbus/tim-ve"> <span class="icon"><i class="fa-solid fa-plus"></i></span> <s:message code="lo.mn.findTickets"/></a></li>
+                        <li><a class="dropdown-item" href="/asm/saigonwaterbus/kiem-tra-ve"> <span class="icon"><i class="fa-solid fa-plus"></i></span> <s:message code="lo.mn.checkTickets"/></a></li>
                       </ul>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="/ASM/saigonwaterbus/lien-he">
-                        LIÊN HỆ
+                    <a class="nav-link" href="/asm/saigonwaterbus/lien-he">
+                        <s:message code="lo.mn.contact"/>
                     </a>
                 </li>
                 <li class="nav-item">
@@ -179,8 +204,18 @@
                         <i class="fa-solid fa-language"></i>
                     </a>
                     <ul class="dropdown-menu">
-                        <li><a class="dropdown-item active" href="#">Tiếng Việt</a></li>
-                        <li><a class="dropdown-item" href="#">Tiếng Anh</a></li>
+                        <li><a class="dropdown-item active" href="?lang=vi">Tiếng Việt</a></li>
+                        <li><a class="dropdown-item" href="?lang=en">Tiếng Anh</a></li>
+                    </ul>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#">
+                        <i class="fa-regular fa-address-card"></i>
+                    </a>
+                    <ul class="dropdown-menu">
+                        <li><a class="dropdown-item" href="/asm/saigonwaterbus/profile"><s:message code="lo.mn.personalInformation"/></a></li>
+                        <li><a class="dropdown-item" href="/asm/saigonwaterbus/lichsudatve"><s:message code="lo.mn.ticketHistory"/></a></li>
+                        <li><a class="dropdown-item" href="/asm/logout"><s:message code="lo.mn.logout"/></a></li>
                     </ul>
                 </li>
             </ul>
@@ -192,24 +227,23 @@
     <!-- Views -->
     <article class="p-0">
         <jsp:include page="${view}"></jsp:include>
-        
     </article>
 
     <!-- Footer -->
     <footer class="footer row mt-1" >
        <div class="infor">
-            <img src="img/logo_footer.png" alt="" class="img_footer">
+            <img src="${pageContext.request.contextPath}/img/logo_footer.png" alt="" class="img_footer">
             <div class="nav_menu">
-                <h5 class="title">Thông tin</h5>
+                <h5 class="titlee"><s:message code="lo.mn.information"/></h5>
                 <ul class="list">
-                    <li><a class="menu_item" href="">Giới Thiệu</a></li>
-                    <li><a class="menu_item" href="">Đối Tác</a></li>
-                    <li><a class="menu_item" href="">Tuyển Dụng</a></li>
-                    <li><a class="menu_item" href="">Hoạt Động Nội Bộ</a></li>
+                    <li><a class="menu_item" href=""><s:message code="lo.mn.introduction"/></a></li>
+                    <li><a class="menu_item" href=""><s:message code="lo.mn.partners"/></a></li>
+                    <li><a class="menu_item" href=""><s:message code="lo.mn.recruitment"/></a></li>
+                    <li><a class="menu_item" href=""><s:message code="lo.mn.internalOperations"/></a></li>
                 </ul>
             </div>
             <div class="nav_menu">
-                <h5 class="title">Dịch Vụ</h5>
+                <h5 class="titlee"><s:message code="lo.mn.service"/></h5>
                 <ul class="list">
                     <li><a class="menu_item" href="">Water Bus</a></li>
                     <li><a class="menu_item" href="">Water Taxi</a></li>
@@ -218,27 +252,27 @@
                 </ul>
             </div>
             <div class="nav_menu">
-                <h5 class="title">Liên Hệ</h5>
+                <h5 class="titlee"><s:message code="lo.mn.contactLi"/></h5>
                 <ul class="list">
-                    <li><a class="menu_item" href="">Văn Phòng Chính</a></li>
-                    <li><a class="menu_item" href="">Hợp Tác Ngân Hàng</a></li>
-                    <li><a class="menu_item" href="">Câu Hỏi Thường Gặp</a></li>
+                    <li><a class="menu_item" href=""><s:message code="lo.mn.mainOffice"/></a></li>
+                    <li><a class="menu_item" href=""><s:message code="lo.mn.bankingCooperation"/></a></li>
+                    <li><a class="menu_item" href=""><s:message code="lo.mn.frequentlyAskedQuestions"/></a></li>
                 </ul>
             </div>
             <div class="nav_menu">
-                <h5 class="title">Chính Sách</h5>
+                <h5 class="titlee"><s:message code="lo.mn.policy"/></h5>
                 <ul class="list">
-                    <li><a class="menu_item" href="">Chính Sách & Quy Định Chung</a></li>
-                    <li><a class="menu_item" href="">Điều Khoản Sử Dụng</a></li>
-                    <li><a class="menu_item" href="">Chính Sách Bảo Mật</a></li>
+                    <li><a class="menu_item" href=""><s:message code="lo.mn.generalPoliciesRegulations"/></a></li>
+                    <li><a class="menu_item" href=""><s:message code="lo.mn.termsofUse"/></a></li>
+                    <li><a class="menu_item" href=""><s:message code="lo.mn.PrivacyPolicy"/></a></li>
                 </ul>
-                <img src="img/da-thong-bao-bct.png" alt="" width="150" height="57">
+                <img src="${pageContext.request.contextPath}/img/da-thong-bao-bct.png" alt="" width="150" height="57">
             </div>
        </div>
        <div class="copyright" style="text-align: center; color: #979797;">
-            <p>© 2022 CÔNG TY TNHH THƯỜNG NHẬT. Giấy CNĐK DN số: 0304354924 cấp ngày 05/05/2006 tại Sở Kế hoạch & đầu tư Tp. Hồ Chí Minh.
+            <p>©<s:message code="lo.mn.copyright"/>
                <br>
-                Địa chỉ: 6 Phan Kế Bính, Phường Đa Kao, Quận 1, TP. Hồ Chí Minh.</p>
+                <s:message code="lo.mn.address"/></p>
        </div>
     </footer>
 

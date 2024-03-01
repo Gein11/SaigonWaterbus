@@ -1,5 +1,9 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+<%@ taglib uri="http://java.sun.com/jstl/core_rt" prefix="c"%>
+<%@ taglib uri="http://www.springframework.org/tags/form" prefix="form" %>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/fmt" prefix="fmt" %>
+<%@ taglib uri="http://www.springframework.org/tags" prefix="s" %>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -10,10 +14,20 @@
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet"
     integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
   <link rel="stylesheet" href="trangchu.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+	<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto|Varela+Round">
+	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css">
+	<link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+	<script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
+	<script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"></script>
+	<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js"></script>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
   <style type="text/css">
   #carouselExampleAutoplaying {
-    width: 1343px;
-    height: 600px;
+/*     width: 1343px;
+ */    height: 600px;
 }
 
 .carousel-inner {
@@ -102,31 +116,45 @@
     text-align: center;
 }
   </style>
+  
+ <%--  <script type="text/javascript">
+  $(document).ready(function() {
+		$("a[href*=lang]").on("click", function() {
+			var param = $(this).attr("href");
+			$.ajax({
+				url : "/home/index" + param,
+				success : function() {
+					location.reload();
+				}
+			});
+			return false;
+		})
+	})
+  </script> --%>
 </head>
 
 <body>
   <div id="carouselExampleAutoplaying" class="carousel slide" data-bs-ride="carousel">
     <div class="carousel-inner">
       <div class="carousel-item active">
-        <img src="img/slideshow1.jpg" class="d-block w-100" alt="...">
+        <img src="${pageContext.request.contextPath}/img/slideshow1.jpg" class="d-block w-100" alt="...">
         <div class="carousel-caption d-none d-md-block">
-          <h5 class="title">Hệ thống bến & thuyền sinh động, được yêu thích nhất Việt Nam</h5>
-          <p class="title-content">Hệ thống cơ sở vật chất hiện đại, an toàn, đội ngũ nhân viên chuyên nghiệp, thân
-            thiện.</p>
+          <h5 class="title"><s:message code="lo.mn.caroseltitle1"/></h5>
+          <p class="title-content"><s:message code="lo.mn.caroseltitlesup1"/></p>
         </div>
       </div>
       <div class="carousel-item">
-        <img src="img/slideshow2.jpg" class="d-block w-100" alt="...">
+        <img src="${pageContext.request.contextPath}/img/slideshow2.jpg" class="d-block w-100" alt="...">
         <div class="carousel-caption d-none d-md-block">
-          <h5 class="title">SaiGon WaterBus hơi thở mới trên sông Sài Gòn</h5>
-          <p class="title-content">Cảm nhận những cơn gió mát lành, nghe tiếng sóng rì rào bên mạng tàu.</p>
+          <h5 class="title"><s:message code="lo.mn.caroseltitle2"/></h5>
+          <p class="title-content"><s:message code="lo.mn.caroseltitlesup2"/></p>
         </div>
       </div>
       <div class="carousel-item">
-        <img src="img/slideshow3.jpg" class="d-block w-100" alt="...">
+        <img src="${pageContext.request.contextPath}/img/slideshow3.jpg" class="d-block w-100" alt="...">
         <div class="carousel-caption d-none d-md-block">
-          <h5 class="title">Bắt trọn khoảnh khắc đẹp nhất của thành phố nhìn từ phía sông</h5>
-          <p class="title-content">Chiêm ngưỡng những công trình nổi tiếng của thành phố mang tên Bác.</p>
+          <h5 class="title"><s:message code="lo.mn.caroseltitle3"/></h5>
+          <p class="title-content"><s:message code="lo.mn.caroseltitlesup3"/></p>
         </div>
       </div>
     </div>
@@ -149,14 +177,14 @@
       <li class="nav-item" role="presentation">
         <button class="nav-link active" id="waterbus-tab" data-bs-toggle="tab" data-bs-target="#waterbus" type="button"
           role="tab" aria-controls="waterbus" aria-selected="true">
-          <img src="img/swb-logo.svg" alt=""> <br>
+          <img src="${pageContext.request.contextPath}/img/swb-logo.svg" alt=""> <br>
           Saigon WaterBus
         </button>
       </li>
       <li class="nav-item" role="presentation">
         <button class="nav-link" id="watergo-tab" data-bs-toggle="tab" data-bs-target="#watergo" type="button"
           role="tab" aria-controls="watergo" aria-selected="false">
-          <img src="img/swg-logo.svg" alt=""> <br>
+          <img src="${pageContext.request.contextPath}/img/swg-logo.svg" alt=""> <br>
           Saigon WaterGo
         </button>
       </li>
@@ -166,54 +194,52 @@
     <div class="tab-content">
 
       <div class="tab-pane active" id="waterbus" role="tabpanel" aria-labelledby="waterbus-tab" tabindex="0">
-        <div class="row justify-content-center g-2">
-          <div class="col-10 d-flex">
+        <!-- bắt đầu form tìm kiếm chuyến tàu -->
+    <div class="row justify-content-center align-items-center g-2" style="margin-top: 10px;">
+    	<form:form method="get" action="/asm/saigonwaterbus/tim-ve" class="d-flex justify-content-center align-items-center">
+        <div class="col-10 d-flex align-items-center justify-content-center">
             <div class="col-3">
-              <strong class="go"><i class="fa-solid fa-circle-arrow-up"></i> Nơi đi</strong>
-              <select class="form-select fs-6 border border-0" aria-label="Chọn nơi đến">
-                <!-- Thêm các tùy chọn cho nơi đến -->
-                <option value="optionA">Chọn nơi đi</option>
-                <option value="optionB">Ga tàu thủy Bạch Đằng</option>
-                <option value="optionC">Ga tàu thủy Bình An</option>
-                <option value="optionC">Ga tàu thủy Thanh Đa</option>
-                <option value="optionC">Ga tàu thủy Hiệp Bình Chánh</option>
-                <option value="optionC">Ga tàu thủy Linh Đông</option>
-                <option value="optionC">30 Phút Trên Sông</option>
-                <option value="optionC">60 Phút Trên Sông</option>
-                <option value="optionC">60 Phút Ngắm Hoàng Hôn</option>
-              </select>
+                <strong class="go"><i class="fa-solid fa-circle-arrow-up"></i> <s:message code="lo.mn.Departure"/></strong>
+                <select name="benDi" class="form-select fs-6 border border-0" aria-label="Chọn nơi đến">
+                    <!-- Thêm các tùy chọn cho nơi đến -->
+                    <option value="Chọn">Chọn nơi đi</option>
+                    <option value="Bạch Đằng">Ga tàu thủy Bạch Đằng</option>
+                    <option value="Bình An">Ga tàu thủy Bình An</option>
+                    <option value="Thanh Đa">Ga tàu thủy Thanh Đa</option>
+                    <option value="Hiệp Bình Chánh">Ga tàu thủy Hiệp Bình Chánh</option>
+                    <option value="Linh Đông">Ga tàu thủy Linh Đông</option>
+                </select>
             </div>
 
             <div class="col-1 d-flex align-items-center justify-content-center">
-              <img src="img/swap-xe-to.svg" alt="">
+                <img src="${pageContext.request.contextPath}/img/swap-xe-to.svg" alt="">
             </div>
 
             <div class="col-3">
-              <strong class="go"><i class="fa-solid fa-circle-arrow-up"></i> Nơi đến</strong>
-              <select class="form-select fs-6 border border-0" aria-label="Chọn nơi đến">
-                <!-- Thêm các tùy chọn cho nơi đến -->
-                <option value="optionA">Chọn nơi đến</option>
-                <option value="optionB">Ga tàu thủy Bạch Đằng</option>
-                <option value="optionC">Ga tàu thủy Bình An</option>
-                <option value="optionC">Ga tàu thủy Thanh Đa</option>
-                <option value="optionC">Ga tàu thủy Hiệp Bình Chánh</option>
-                <option value="optionC">Ga tàu thủy Linh Đông</option>
-                <option value="optionC">30 Phút Trên Sông</option>
-                <option value="optionC">60 Phút Trên Sông</option>
-                <option value="optionC">60 Phút Ngắm Hoàng Hôn</option>
-              </select>
+                <strong class="go"><i class="fa-solid fa-circle-arrow-up"></i> <s:message code="lo.mn.Destination"/></strong>
+                <select name="benDen" class="form-select fs-6 border border-0" aria-label="Chọn nơi đến">
+                    <!-- Thêm các tùy chọn cho nơi đến -->
+                    <option value="Chọn">Chọn nơi đến</option>
+                    <option value="Bạch Đằng">Ga tàu thủy Bạch Đằng</option>
+                    <option value="Bình An">Ga tàu thủy Bình An</option>
+                    <option value="Thanh Đa">Ga tàu thủy Thanh Đa</option>
+                    <option value="Hiệp Bình Chánh">Ga tàu thủy Hiệp Bình Chánh</option>
+                    <option value="Linh Đông">Ga tàu thủy Linh Đông</option>
+                </select>
             </div>
 
             <div class="col-2" style="padding-left: 5px;">
-              <strong class="go"><i class="fa-solid fa-calendar-days"></i> Ngày đi</strong>
-              <input type="date" class="form-control fs-6 border border-0">
+                <strong class="go"><i class="fa-solid fa-calendar-days"></i> <s:message code="lo.mn.Dateofdepartment"/></strong>
+                <input name="ngayKhoiHanh" type="date" class="form-control fs-6 border border-0">
             </div>
 
-            <div class="col-2 d-flex align-items-center justify-content-center">
-              <button class="timve"><i class="fa-solid fa-magnifying-glass"></i> Tìm vé</button>
+            <div class="col-2 d-flex align-items-center justify-content-center">            
+        		<button type="submit" class="btn btn-success timve p-2"><i class="fa-solid fa-magnifying-glass"></i><span> <s:message code="lo.mn.findTicket"/></span></button>
             </div>
-          </div>
         </div>
+        </form:form>
+    </div>
+	<!-- kết thúc form tìm kiếm chuyến tàu -->
 
       </div>
       <div class="tab-pane" id="watergo" role="tabpanel" aria-labelledby="watergo-tab" tabindex="0">
@@ -241,31 +267,30 @@
   </div>
 
   <div class="row justify-content-center align-items-center border border-2 m-4 p-2">
-    <h2>Quy trình đặt vé trong 4 bước</h2>
+    <h2><s:message code="lo.mn.steps"/></h2>
     <div class="col-12 d-flex justify-content-center align-items-center text-center">
       <div class="col-3">
         <i class="fa-solid fa-magnifying-glass-location iicon"></i>
-        <h5>Tìm chuyến</h5>
-        <p style="font-size: 14px;">Chọn thông tin hành trình và ấn Tìm chuyến</p>
+        <h5><s:message code="lo.mn.Findaflight"/></h5>
+        <p style="font-size: 14px;"><s:message code="lo.mn.Select"/></p>
       </div>
       <div class="col-3">
         <i class="fa-solid fa-user iicon"></i>
-        <h5>Chọn chỗ</h5>
-        <p style="font-size: 14px;">Chọn chuyến, chỗ ngồi phù hợp, điền thông tin</p>
+        <h5><s:message code="lo.mn.Chooseaseat"/></h5>
+        <p style="font-size: 14px;"><s:message code="lo.mn.Selectthe"/></p>
       </div>
       <div class="col-3">
         <i class="fa-solid fa-circle-check iicon"></i>
-        <h5>Đặt chỗ</h5>
-        <p style="font-size: 14px;">Tiến hành thanh toán online hoặc giữ chỗ</p>
+        <h5><s:message code="lo.mn.Reservation"/></h5>
+        <p style="font-size: 14px;"><s:message code="lo.mn.Proceed"/></p>
       </div>
       <div class="col-3">
         <i class="fa-solid fa-anchor iicon"></i>
-        <h5>Lên tàu</h5>
-        <p style="font-size: 14px;">Nhận mã, và xuất trình cho nhân viên khi lên tàu</p>
+        <h5><s:message code="lo.mn.Getonthetrain"/></h5>
+        <p style="font-size: 14px;"><s:message code="lo.mn.Receive"/></p>
       </div>
     </div>
-    <h5 style="font-style: italic; font-weight: bold; color: #6ec1e4;">Lưu ý: Saigon Waterbus miễn phí vé cho người cao
-      tuổi từ 70 và các bé dưới 1 tuổi, người khuyết tật và thương binh. </h5>
+    <h5 style="font-style: italic; font-weight: bold; color: #6ec1e4;"><s:message code="lo.mn.note"/></h5>
   </div>
 
   <div class="row justify-content-center align-items-center">
@@ -286,7 +311,7 @@
       </div>
 
       <div class="col-5">
-        <img src="img/home-slide-1-1536x880.jpg" alt="" class="w-100" style="margin-left: 25px;">
+        <img src="${pageContext.request.contextPath}/img/home-slide-1-1536x880.jpg" alt="" class="w-100" style="margin-left: 25px;">
       </div>
     </div>
   </div>
@@ -334,7 +359,7 @@
         <div class="row justify-content-center g-2">
           <div class="col-10 d-flex  justify-content-center">
             <div class="col-5">
-              <img src="img/home-slide-0-1-1536x880.jpg" alt="" class="w-100">
+              <img src="${pageContext.request.contextPath}/img/home-slide-0-1-1536x880.jpg" alt="" class="w-100">
             </div>
             <div class="col-5">
               <div class="row" style="text-align: justify; margin-left: 5px;">
@@ -358,7 +383,7 @@
         <div class="row justify-content-center g-2">
           <div class="col-10 d-flex  justify-content-center">
             <div class="col-5">
-              <img src="img/home-slide-3-1536x880.jpg" alt="" class="w-100">
+              <img src="${pageContext.request.contextPath}/img/home-slide-3-1536x880.jpg" alt="" class="w-100">
             </div>
             <div class="col-5">
               <div class="row" style="text-align: justify; margin-left: 5px;">
@@ -381,7 +406,7 @@
         <div class="row justify-content-center g-2">
           <div class="col-10 d-flex  justify-content-center">
             <div class="col-5">
-              <img src="img/home-slide-6-1536x930.jpg" alt="" class="w-100">
+              <img src="${pageContext.request.contextPath}/img/home-slide-6-1536x930.jpg" alt="" class="w-100">
             </div>
             <div class="col-5">
               <div class="row" style="text-align: justify; margin-left: 5px;">
@@ -404,7 +429,7 @@
         <div class="row justify-content-center g-2">
           <div class="col-10 d-flex  justify-content-center">
             <div class="col-5">
-              <img src="img/home-slide-1-1536x880.jpg" alt="" class="w-100">
+              <img src="${pageContext.request.contextPath}/img/home-slide-1-1536x880.jpg" alt="" class="w-100">
             </div>
             <div class="col-5">
               <div class="row" style="text-align: justify; margin-left: 5px;">
@@ -427,7 +452,7 @@
         <div class="row justify-content-center g-2">
           <div class="col-10 d-flex  justify-content-center">
             <div class="col-5">
-              <img src="img/home-slide-4-1536x880.jpg" alt="" class="w-100">
+              <img src="${pageContext.request.contextPath}/img/home-slide-4-1536x880.jpg" alt="" class="w-100">
             </div>
             <div class="col-5">
               <div class="row" style="text-align: justify; margin-left: 5px;">
@@ -476,14 +501,14 @@
       </div>
 
       <div class="col-5">
-        <img src="img/325469969_479843330780453_2536484999119177769_n-1-1536x1141.jpg" alt="" class="w-100"
+        <img src="${pageContext.request.contextPath}/img/325469969_479843330780453_2536484999119177769_n-1-1536x1141.jpg" alt="" class="w-100"
           style="margin-left: 25px;">
       </div>
     </div>
   </div>
 
   <div class="image-container">
-    <img src="img/home-slide-6-1.jpg" class="d-block w-100" alt="...">
+    <img src="${pageContext.request.contextPath}/img/home-slide-6-1.jpg" class="d-block w-100" alt="...">
     <div class="text-overlay">
       Hãy cùng khám phá vẻ đẹp sông Sài Gòn trên những chuyến tàu Water Bus
     </div>

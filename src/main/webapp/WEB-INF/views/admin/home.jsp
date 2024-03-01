@@ -5,7 +5,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    <title>Document</title>
+    <title>SAIGON WATERBUS</title>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL" crossorigin="anonymous"></script>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
     <link type="text/css" rel="stylesheet" href="cartcss.css">
@@ -140,7 +140,7 @@
             <div class="Main">
                 <div class="row">
                     <div class="col-2">
-                       <a href="/asm/index"> <label class=" float-start">SaiGon Waterbus</label></a>
+                       <a href="/asm/indexAdmin"> <label class=" float-start">SaiGon Waterbus</label></a>
                     </div>
                     <div class="col-9 marquee-container">
                         <p class="marquee-text" id="marqueeText">Chào mừng ADMIN đến với trang quản trị!</p>
@@ -162,139 +162,92 @@
                                 <img src="/asm/img/admin/387803680_3546688608943806_6360662395901972785_n.jpg" alt="Profile Image" class="img-fluid">
                             </div>
                             <div class="mt-3">
-                                <strong><p>Welcome back AVINH !</p></strong>
+                                <strong><p style="color: black;">Welcome back!</p></strong>
                             </div>
                         </div>
                     </div>
                 </div>
                 <div class="method vh-60">
- 
-			
-                    <div class="btn-group w-100">
-      
-             				       
-                        <button type="button" class="btn btn-secondary dropdown-toggle" data-bs-toggle="dropdown" aria-expanded="false">
-                           Ticket Action  
-                        </button> 
-             	
-                        <ul class="dropdown-menu dropdown-menu-end text-center">
-<!--                             <li><a href="/asm/tool/add"><button class="dropdown-item" type="button">Add ticket</button></a></li>
-                            <li><a href="/asm/tool/update"><button class="dropdown-item" type="button">Update</button></a></li>
-                            <li> <a href="/asm/tool/delete"> <button class="dropdown-item" type="button">Delete</button></a></li> -->
-                            <li> <a href="/asm/tool/booked"> <button class="dropdown-item" type="button">Tickets booked</button></a></li>
-                            <li><a href="/asm/tool/tools"><button class="dropdown-item" type="button">Tools</button></a></li>
-                        </ul>
-                    </div>
 
-                   <div class="btn-group    w-100">
+                  
+                    <div class="btn-group    w-100">
                         <button type="button" class="btn btn-secondary dropdown-toggle" data-bs-toggle="dropdown" aria-expanded="false">
-                            Account action
+                            TUYẾN TÀU
                         </button>
                         <ul class="dropdown-menu dropdown-menu-end text-center">
-                            <li><button class="dropdown-item  " type="button">Add</button></li>
-                            <li><button class="dropdown-item" type="button">Update</button></li>
-                            <li><button class="dropdown-item" type="button">Delete</button></li>
-                            <li><button class="dropdown-item" type="button">Tool</button></li>
-                            
-                        </ul>
-                    </div>
-                    
-                    
-                         <div class="btn-group    w-100">
-                        <button type="button" class="btn btn-secondary dropdown-toggle" data-bs-toggle="dropdown" aria-expanded="false">
-                            Boat trip Action
-                        </button>
-                        <ul class="dropdown-menu dropdown-menu-end text-center">
-                            <li><button class="dropdown-item  " type="button">Add</button></li>
-                            <li><button class="dropdown-item" type="button">Update</button></li>
-                            <li><button class="dropdown-item" type="button">Delete</button></li>
-                              <li><button class="dropdown-item" type="button">Tool</button></li>
-                            
+                    <li>  <a href="/asm/tool/routeship"><button class="dropdown-item  " type="button">Quản lý tuyến tàu</button></a></li>
                         </ul>
                     </div>
                 
-                    <div class="btn-group    w-100">
-                        <button type="button" class="btn btn-secondary dropdown-toggle" data-bs-toggle="dropdown" aria-expanded="false">
-                            Ship routes Action
-                        </button>
-                        <ul class="dropdown-menu dropdown-menu-end text-center">
-                                                  <li>  <a href="/asm/tool/addroute"><button class="dropdown-item  " type="button">Add</button></a></li>
-                      
-                            <li><button class="dropdown-item" type="button">Update</button></li>
-                        </ul>
-                    </div>
-                
-                                
-                     <div class="btn-group    w-100">
-                        <button type="button" class="btn btn-secondary dropdown-toggle" data-bs-toggle="dropdown" aria-expanded="false">
-                            Driver Action
-                        </button>
-                        <ul class="dropdown-menu dropdown-menu-end text-center">
-                            <li><button class="dropdown-item  " type="button">Add</button></li>
-                            <li><button class="dropdown-item" type="button">Update</button></li>
-                            <li><button class="dropdown-item" type="button">Delete</button></li>
-                            <li><button class="dropdown-item" type="button">Tool</button></li>
-                            
-                        </ul>
-                    </div>
-                    
-                        <div class="btn-group    w-100">
-                        <button type="button" class="btn btn-secondary dropdown-toggle" data-bs-toggle="dropdown" aria-expanded="false">
-                            Ship action
-                        </button>
-                        <ul class="dropdown-menu dropdown-menu-end text-center">
-                            <li><button class="dropdown-item  " type="button">Add</button></li>
-                            <li><button class="dropdown-item" type="button">Update</button></li>
-                            <li><button class="dropdown-item" type="button">Delete</button></li>
-                            <li><button class="dropdown-item" type="button">Tool</button></li>
-                            
-                        </ul>
-                    </div>
-                    
-                    
-                         <div class="btn-group  w-100">
-                        <button type="button" class="btn btn-secondary dropdown-toggle" data-bs-toggle="dropdown" aria-expanded="false">
-                            Bill Action
-                        </button>
-                        <ul class="dropdown-menu dropdown-menu-end text-center">
-                            <li><button class="dropdown-item  " type="button">Add</button></li>
-                            <li><button class="dropdown-item" type="button">Update</button></li>
-                            <li><button class="dropdown-item" type="button">Delete</button></li>
-                              <li><button class="dropdown-item" type="button">Tool</button></li>
-                            
-                        </ul>
-                    </div>
-                    
+         
+      
+                 
                     
                     <div class="btn-group    w-100">
                         <button type="button" class="btn btn-secondary dropdown-toggle" data-bs-toggle="dropdown" aria-expanded="false">
-                            Ship action
+                            TÀU
                         </button>
                         <ul class="dropdown-menu dropdown-menu-end text-center">
-                            <li><button class="dropdown-item  " type="button">Add</button></li>
-                            <li><button class="dropdown-item" type="button">Update</button></li>
-                            <li><button class="dropdown-item" type="button">Delete</button></li>
-                            <li><button class="dropdown-item" type="button">Tool</button></li>
+
+                            <li><a href="/asm/tool/toolship"><button class="dropdown-item" type="button">Quản Lý Tàu</button></a></li>
                             
                         </ul>
                     </div>
-                    
-                    
-                         <div class="btn-group  w-100">
-                        <button type="button" class="btn btn-secondary dropdown-toggle" data-bs-toggle="dropdown" aria-expanded="false">
-                            Boat trip Action(Chuyến tàu)
-                        </button>
-                        <ul class="dropdown-menu dropdown-menu-end text-center">
-                            <li><button class="dropdown-item  " type="button">Add</button></li>
-                            <li><button class="dropdown-item" type="button">Update</button></li>
-                            <li><button class="dropdown-item" type="button">Delete</button></li>
-                              <li><button class="dropdown-item" type="button">Tool</button></li>
-                            
-                        </ul>
+                   
+					
+					<div class="btn-group    w-100">
+						<button type="button" class="btn btn-secondary dropdown-toggle"
+							data-bs-toggle="dropdown" aria-expanded="false">TÀI XẾ</button>
+						<ul class="dropdown-menu dropdown-menu-end text-center">
+							<li><a href="/asm/tool/driver"><button
+										class="dropdown-item" type="button">Quản Lý Tài Xế</button></a></li>
+						</ul>
+					</div>
+					
+					<div class="btn-group    w-100">
+						<button type="button" class="btn btn-secondary dropdown-toggle"
+							data-bs-toggle="dropdown" aria-expanded="false">CHUYẾN TÀU</button>
+						<ul class="dropdown-menu dropdown-menu-end text-center">
+							<li><a href="/asm/tool/trip"><button
+										class="dropdown-item" type="button">Quản Lý Chuyến Tàu</button></a></li>
+						</ul>
+					</div>
+					
+					<div class="btn-group    w-100">
+						<button type="button" class="btn btn-secondary dropdown-toggle"
+							data-bs-toggle="dropdown" aria-expanded="false">VÉ TÀU</button>
+						<ul class="dropdown-menu dropdown-menu-end text-center">
+							<li><a href="/asm/tool/ve"><button
+										class="dropdown-item" type="button">Quản Lý Vé Tàu</button></a></li>
+						</ul>
+					</div>
+					
+					<div class="btn-group    w-100">
+						<button type="button" class="btn btn-secondary dropdown-toggle"
+							data-bs-toggle="dropdown" aria-expanded="false">HÓA ĐƠN</button>
+						<ul class="dropdown-menu dropdown-menu-end text-center">
+							<li><a href="/asm/tool/hoadon"><button
+										class="dropdown-item" type="button">Quản Lý Hóa Đơn</button></a></li>
+						</ul>
+					</div>
+					<div class="btn-group    w-100">
+						<button type="button" class="btn btn-secondary dropdown-toggle"
+							data-bs-toggle="dropdown" aria-expanded="false">THỐNG KÊ</button>
+						<ul class="dropdown-menu dropdown-menu-end text-center">
+							<li><a href="/asm/tool/thongke"><button
+										class="dropdown-item" type="button">Thống kê doanh thu ngày</button></a></li>
+						</ul>
+					</div>
+    				<div class="btn-group    w-100">
+						<ul class="text-center" style="list-style: none;">
+							<li><a href="/asm/logout"><button style="background-color: #6c757d;  color: #ffc107; border: none; font-size: 20px"
+										class="" type="button">Đăng xuất</button></a></li>
+						</ul>
+					</div>
                     </div>
                     
                     
-                </div>
+
                 
                 
                 
@@ -306,10 +259,12 @@
                 </div>
 
             </div>
-			<div class="col-md-10 d-flex justify-content-center">
-			    <div class="w-75 mx-auto" style="margin-left: 120px!important;">
-			        <jsp:include page="${viewad}"></jsp:include>
-			    </div>
+			<div class="col-md-10">
+			  	<div style="margin-left: 20px!important;">
+			  					        <jsp:include page="${viewad}"></jsp:include>
+			  		
+			  	</div>
+				
 			</div>
 
         </div>

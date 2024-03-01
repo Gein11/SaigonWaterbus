@@ -125,7 +125,7 @@ width: 100%;
 
 <body>
     <section class="lkh1">
-        <img src="img/lich.jpg" alt="" width="100%">
+        <img src="${pageContext.request.contextPath}/img/lich.jpg" alt="" width="100%">
 
     </section>
     <section class="lkh2">
